@@ -1,0 +1,12 @@
+import sys
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parent.parent
+
+sys.path.insert(0, str(ROOT / "eo-collector"))
+
+from config.settings import load_config
+
+cfg = load_config()
+
+print(cfg)

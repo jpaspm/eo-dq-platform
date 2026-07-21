@@ -1,0 +1,346 @@
+collector:
+
+  runtime:
+
+    environment: dev
+
+    log_level: INFO
+
+    output_format: ndjson
+
+  storage:
+
+    type: local               # local | s3
+
+    local:
+
+      root_directory: samples/raw
+
+    s3:
+
+      bucket: itx-dwy-eo-dataquality-905417995456-us-east-1-an
+
+      prefix: raw
+
+      region: us-east-1
+
+  cloud:
+
+    aws:
+
+      region: us-east-1
+
+      authentication:
+
+        type: iam-role
+
+      secrets:
+
+        provider: aws-secrets-manager
+
+#
+# ============================================================================
+# Enterprise Source Profiles
+# ============================================================================
+#
+
+sources:
+
+  #
+  # --------------------------------------------------------------------------
+  # Kafka Sources
+  # --------------------------------------------------------------------------
+  #
+
+  - name: Cloud Insights Linux Logs
+    enabled: true
+
+    source_key: INFRA_LINUX_LOGS
+
+    transport: kafka
+
+    profile:
+
+      domain: Infrastructure
+
+      product: Cloud Insights
+
+      platform: Linux
+
+      signal: Logs
+
+      schema: CIS_LINUX
+
+      rule_scope: cis_linux
+
+    connection:
+
+      broker_secret: EO/Kafka/Dev
+
+      consumer_group: eo-collector-dev
+
+      security_protocol: SSL
+
+      auto_offset_reset: earliest
+
+    datasets:
+
+      - ND_CIS_LINUX_LOGS
+
+      - NP_CIS_LINUX_LOGS
+
+  - name: Cloud Insights Windows Logs
+
+    enabled: true
+
+    source_key: INFRA_WINDOWS_LOGS
+
+    transport: kafka
+
+    profile:
+
+      domain: Infrastructure
+
+      product: Cloud Insights
+
+      platform: Windows
+
+      signal: Logs
+
+      schema: CIS_WINDOWS
+
+      rule_scope: cis_windows
+
+    connection:
+
+      broker_secret: EO/Kafka/Dev
+
+      consumer_group: eo-collector-dev
+
+      security_protocol: SSL
+
+      auto_offset_reset: earliest
+
+    datasets:
+
+      - ND_CIS_WINDOWS_LOGS
+
+  - name: OpenTelemetry Kubernetes Metrics
+
+    enabled: true
+
+    source_key: K8S_OTEL_METRICS
+
+    transport: kafka
+
+    profile:
+
+      domain: Infrastructure
+
+      product: OpenTelemetry
+
+      platform: Kubernetes
+
+      signal: Metrics
+
+      schema: OTEL_METRICS
+
+      rule_scope: otel_metrics
+
+    connection:
+
+      broker_secret: EO/Kafka/Dev
+
+      consumer_group: eo-collector-dev
+
+      security_protocol: SSL
+
+      auto_offset_reset: latest
+
+    datasets:
+
+      - OTEL_K8S_METRICS
+
+#
+# --------------------------------------------------------------------------
+# REST Sources
+# --------------------------------------------------------------------------
+#
+
+  - name: AppDynamics Metrics
+
+    enabled: true
+
+    source_key: APP_APM_METRICS
+
+    transport: rest
+
+    profile:
+
+      domain: Application
+
+      product: AppDynamics
+
+      platform: Application
+
+      signal: Metrics
+
+      schema: APPD_METRICS
+
+      rule_scope: appd_metrics
+
+    connection:
+
+      endpoint: https://appd.company.com/controller
+
+      credential_secret: EO/AppDynamics/Prod
+
+      timeout: 60
+
+    datasets:
+
+      - BusinessApplicationMetrics
+
+      - TierMetrics
+
+      - NodeMetrics
+
+  - name: Splunk Search
+
+    enabled: true
+
+    source_key: APP_SPLUNK_LOGS
+
+    transport: rest
+
+    profile:
+
+      domain: Application
+
+      product: Splunk
+
+      platform: Application
+
+      signal: Logs
+
+      schema: SPLUNK_LOGS
+
+      rule_scope: splunk_logs
+
+    connection:
+
+      endpoint: https://splunk.company.com:8089
+
+      credential_secret: EO/Splunk/Prod
+
+      timeout: 120
+
+    datasets:
+
+      - LinuxLogs
+
+      - WindowsLogs
+
+  - name: ServiceNow CMDB
+
+    enabled: true
+
+    source_key: CMDB_SERVICENOW
+
+    transport: rest
+
+    profile:
+
+      domain: Enterprise
+
+      product: ServiceNow
+
+      platform: CMDB
+
+      signal: Metadata
+
+      schema: CMDB
+
+      rule_scope: cmdb
+
+    connection:
+
+      endpoint: https://company.service-now.com
+
+      credential_secret: EO/ServiceNow/Prod
+
+      timeout: 60
+
+    datasets:
+
+      - ConfigurationItems
+
+      - BusinessServices
+
+  - name: VictoriaMetrics
+
+    enabled: true
+
+    source_key: VM_METRICS
+
+    transport: rest
+
+    profile:
+
+      domain: Infrastructure
+
+      product: VictoriaMetrics
+
+      platform: Kubernetes
+
+      signal: Metrics
+
+      schema: PROMETHEUS
+
+      rule_scope: prometheus_metrics
+
+    connection:
+
+      endpoint: https://vmsingle.company.com
+
+      credential_secret: EO/VictoriaMetrics
+
+      timeout: 60
+
+    datasets:
+
+      - PrometheusMetrics
+
+  - name: Selector.ai
+
+    enabled: true
+
+    source_key: NETWORK_SELECTOR_EVENTS
+
+    transport: rest
+
+    profile:
+
+      domain: Network
+
+      product: Selector.ai
+
+      platform: Network
+
+      signal: Events
+
+      schema: SELECTOR_EVENTS
+
+      rule_scope: selector_events
+
+    connection:
+
+      endpoint: https://api.selector.ai
+
+      credential_secret: EO/SelectorAI
+
+      timeout: 60
+
+    datasets:
+
+      - NetworkEvents

@@ -1,0 +1,36 @@
+{
+    "catalogue_version": "1.0",
+    "generated_at": "2026-07-16T07:07:28.423326+00:00",
+    "total_rules": 99,
+    "enabled_rules": 99,
+    "disabled_rules": 0,
+    "validators": {
+        "required": 48,
+        "format": 6,
+        "range": 4,
+        "enum": 9,
+        "custom": 3,
+        "type": 3,
+        "uniqueness": 4,
+        "consistency": 5,
+        "referential": 7,
+        "baseline": 2,
+        "correlation": 3,
+        "mapping": 2,
+        "coverage": 3
+    },
+    "signals": {
+        "ALL": 39,
+        "METRICS": 20,
+        "LOGS": 20,
+        "TRACES": 13,
+        "EVENTS": 17
+    },
+    "categories": {
+        "Universal": 28,
+        "Infrastructure": 22,
+        "Application": 20,
+        "Network": 17,
+        "Cross-Domain": 12
+    }
+}

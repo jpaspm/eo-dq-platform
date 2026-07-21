@@ -76,3 +76,81 @@ Enterprise Platform
 - REST APIs
 - Multi-source Validation
 - Historical Trending
+
+
+# Enterprise Observability Platform
+
+## Architecture
+
+                   Enterprise Observability Platform
+
+                     +---------------------------+
+                     |       EO Collector        |
+                     +---------------------------+
+                                |
+                                |
+                     +---------------------------+
+                     |      Kafka Collector      |
+                     +---------------------------+
+                                |
+                                |
+                     Normalized Telemetry Record
+                                |
+                                |
+                     +---------------------------+
+                     |      EO DQ Engine         |
+                     +---------------------------+
+                                |
+                                |
+                     +---------------------------+
+                     |     Result Exporter       |
+                     +---------------------------+
+                                |
+                                |
+                     report.json / summary.json
+
+## Components
+
+### EO Collector
+
+Responsible for collecting telemetry from supported sources.
+
+Current implementation:
+
+- Kafka
+
+Future collectors:
+
+- OTLP
+- CloudWatch
+- Splunk
+- Prometheus
+- File
+- REST API
+
+---
+
+### EO DQ Engine
+
+Responsible for:
+
+- Runtime Rule Loading
+- Validator Resolution
+- Rule Execution
+- Result Generation
+
+---
+
+### Result Exporter
+
+Responsible for:
+
+- report.json
+- summary.json
+
+Future:
+
+- S3
+- REST
+
+

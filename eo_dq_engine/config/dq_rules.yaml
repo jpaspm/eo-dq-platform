@@ -1,0 +1,1798 @@
+version: 1.0.0
+catalogue_version: '1.0'
+generated_at: '2026-07-16T07:07:28.393509+00:00'
+generator: Enterprise Observability Runtime Generator
+rule_count: 99
+rules:
+- rule_id: U-01
+  name: Host Tag Present
+  description: Host tag present and non-null
+  category: Universal
+  tier: EASY
+  signal:
+  - ALL
+  validator: required
+  enabled: true
+  severity: CRITICAL
+  execution_order: 1
+  field: host
+  expected: non-null
+  remediation: Populate host tag
+  owner: Enterprise Observability
+  version: '1.0'
+  status: Planned
+  notes: null
+- rule_id: U-02
+  name: Job Tag Present
+  description: Job tag present and non-null
+  category: Universal
+  tier: EASY
+  signal:
+  - ALL
+  validator: required
+  enabled: true
+  severity: CRITICAL
+  execution_order: 2
+  field: job
+  expected: non-null
+  remediation: Populate job tag
+  owner: Enterprise Observability
+  version: '1.0'
+  status: Planned
+  notes: null
+- rule_id: U-03
+  name: Environment Tag Present
+  description: Environment tag present and non-null
+  category: Universal
+  tier: EASY
+  signal:
+  - ALL
+  validator: required
+  enabled: true
+  severity: CRITICAL
+  execution_order: 3
+  field: environment
+  expected: non-null
+  remediation: Populate environment tag
+  owner: Enterprise Observability
+  version: '1.0'
+  status: Planned
+  notes: null
+- rule_id: U-04
+  name: Region Tag Present
+  description: Region tag present and non-null
+  category: Universal
+  tier: EASY
+  signal:
+  - ALL
+  validator: required
+  enabled: true
+  severity: CRITICAL
+  execution_order: 4
+  field: region
+  expected: non-null
+  remediation: Populate region tag
+  owner: Enterprise Observability
+  version: '1.0'
+  status: Planned
+  notes: null
+- rule_id: U-05
+  name: app_id Tag Present
+  description: App_id tag present and non-null
+  category: Universal
+  tier: EASY
+  signal:
+  - ALL
+  validator: required
+  enabled: true
+  severity: CRITICAL
+  execution_order: 5
+  field: app_id
+  expected: non-null
+  remediation: Populate app_id tag
+  owner: Enterprise Observability
+  version: '1.0'
+  status: Planned
+  notes: null
+- rule_id: U-06
+  name: app_name Tag Present
+  description: App_name tag present and non-null
+  category: Universal
+  tier: EASY
+  signal:
+  - ALL
+  validator: required
+  enabled: true
+  severity: CRITICAL
+  execution_order: 6
+  field: app_name
+  expected: non-null
+  remediation: Populate app_name tag
+  owner: Enterprise Observability
+  version: '1.0'
+  status: Planned
+  notes: null
+- rule_id: U-07
+  name: hosting_env Tag Present
+  description: Hosting_env tag present and non-null
+  category: Universal
+  tier: EASY
+  signal:
+  - ALL
+  validator: required
+  enabled: true
+  severity: CRITICAL
+  execution_order: 7
+  field: hosting_env
+  expected: non-null
+  remediation: Populate hosting_env tag
+  owner: Enterprise Observability
+  version: '1.0'
+  status: Planned
+  notes: null
+- rule_id: U-08
+  name: Instance Tag Present
+  description: Instance tag present and non-null
+  category: Universal
+  tier: EASY
+  signal:
+  - ALL
+  validator: required
+  enabled: true
+  severity: CRITICAL
+  execution_order: 8
+  field: instance
+  expected: non-null
+  remediation: Populate instance tag
+  owner: Enterprise Observability
+  version: '1.0'
+  status: Planned
+  notes: null
+- rule_id: U-09
+  name: operational_status Tag Present
+  description: Operational_status tag present and non-null
+  category: Universal
+  tier: EASY
+  signal:
+  - ALL
+  validator: required
+  enabled: true
+  severity: CRITICAL
+  execution_order: 9
+  field: operational_status
+  expected: non-null
+  remediation: Populate operational_status tag
+  owner: Enterprise Observability
+  version: '1.0'
+  status: Planned
+  notes: null
+- rule_id: U-10
+  name: server_location Tag Present
+  description: Server_location tag present and non-null
+  category: Universal
+  tier: EASY
+  signal:
+  - ALL
+  validator: required
+  enabled: true
+  severity: CRITICAL
+  execution_order: 10
+  field: server_location
+  expected: non-null
+  remediation: Populate server_location tag
+  owner: Enterprise Observability
+  version: '1.0'
+  status: Planned
+  notes: null
+- rule_id: U-11
+  name: service_level Tag Present
+  description: Service_level tag present and non-null
+  category: Universal
+  tier: EASY
+  signal:
+  - ALL
+  validator: required
+  enabled: true
+  severity: CRITICAL
+  execution_order: 11
+  field: service_level
+  expected: non-null
+  remediation: Populate service_level tag
+  owner: Enterprise Observability
+  version: '1.0'
+  status: Planned
+  notes: null
+- rule_id: U-12
+  name: vpcx_accountid Tag Present
+  description: Vpcx_accountid tag present and non-null
+  category: Universal
+  tier: EASY
+  signal:
+  - ALL
+  validator: required
+  enabled: true
+  severity: CRITICAL
+  execution_order: 12
+  field: vpcx_accountid
+  expected: non-null
+  remediation: Populate vpcx_accountid tag
+  owner: Enterprise Observability
+  version: '1.0'
+  status: Planned
+  notes: null
+- rule_id: U-13
+  name: Timestamp Present
+  description: Timestamp field present and non-null
+  category: Universal
+  tier: EASY
+  signal:
+  - ALL
+  validator: required
+  enabled: true
+  severity: CRITICAL
+  execution_order: 13
+  field: timestamp
+  expected: non-null
+  remediation: Populate timestamp tag
+  owner: Enterprise Observability
+  version: '1.0'
+  status: Planned
+  notes: null
+- rule_id: U-14
+  name: Timestamp Nanosecond Precision
+  description: 19-digit nanosecond epoch (not 10-digit seconds)
+  category: Universal
+  tier: MEDIUM
+  signal:
+  - ALL
+  validator: format
+  enabled: true
+  severity: HIGH
+  execution_order: 14
+  field: timestamp
+  expected: 19-digit nanosecond epoch (not 10-digit seconds)
+  remediation: Correct timestamp format at source/pipeline
+  owner: Enterprise Observability
+  version: '1.0'
+  status: Planned
+  notes: null
+- rule_id: U-15
+  name: Timestamp Plausible Range
+  description: Within [now − retention, now]; not 0 and not future
+  category: Universal
+  tier: MEDIUM
+  signal:
+  - ALL
+  validator: range
+  enabled: true
+  severity: HIGH
+  execution_order: 15
+  field: timestamp
+  expected: Within [now − retention, now]; not 0 and not future
+  remediation: Investigate and correct out-of-range timestamp values
+  owner: Enterprise Observability
+  version: '1.0'
+  status: Planned
+  notes: null
+- rule_id: U-16
+  name: Environment In Enum
+  description: Value ∈ the approved environment set
+  category: Universal
+  tier: MEDIUM
+  signal:
+  - ALL
+  validator: enum
+  enabled: true
+  severity: HIGH
+  execution_order: 16
+  field: environment
+  expected: Value ∈ the approved environment set
+  remediation: Align environment to the approved value set
+  owner: Enterprise Observability
+  version: '1.0'
+  status: Planned
+  notes: Depends on approved enum value set
+- rule_id: U-17
+  name: Region Enum & Case
+  description: Value ∈ {NA, EMEA, ASPAC, LATAM} in the agreed case
+  category: Universal
+  tier: MEDIUM
+  signal:
+  - ALL
+  validator: enum
+  enabled: true
+  severity: HIGH
+  execution_order: 17
+  field: region
+  expected: Value ∈ {NA, EMEA, ASPAC, LATAM} in the agreed case
+  remediation: Align region to the approved value set
+  owner: Enterprise Observability
+  version: '1.0'
+  status: Planned
+  notes: Depends on approved enum value set
+- rule_id: U-18
+  name: vpcx_accountid Resolved
+  description: Not the literal $VPCX_ACCOUNTID placeholder
+  category: Universal
+  tier: MEDIUM
+  signal:
+  - ALL
+  validator: format
+  enabled: true
+  severity: HIGH
+  execution_order: 18
+  field: vpcx_accountid
+  expected: Not the literal $VPCX_ACCOUNTID placeholder
+  remediation: Correct vpcx_accountid format at source/pipeline
+  owner: Enterprise Observability
+  version: '1.0'
+  status: Planned
+  notes: null
+- rule_id: U-19
+  name: app_id Format
+  description: Matches the CMDB application-id pattern
+  category: Universal
+  tier: MEDIUM
+  signal:
+  - ALL
+  validator: format
+  enabled: true
+  severity: HIGH
+  execution_order: 19
+  field: app_id
+  expected: Matches the CMDB application-id pattern
+  remediation: Correct app_id format at source/pipeline
+  owner: Enterprise Observability
+  version: '1.0'
+  status: Planned
+  notes: null
+- rule_id: U-20
+  name: operational_status In Enum
+  description: Value ∈ the approved status set
+  category: Universal
+  tier: MEDIUM
+  signal:
+  - ALL
+  validator: enum
+  enabled: true
+  severity: HIGH
+  execution_order: 20
+  field: operational_status
+  expected: Value ∈ the approved status set
+  remediation: Align operational_status to the approved value set
+  owner: Enterprise Observability
+  version: '1.0'
+  status: Planned
+  notes: Depends on approved enum value set
+- rule_id: U-21
+  name: service_level In Enum
+  description: Value ∈ the approved service-level set
+  category: Universal
+  tier: MEDIUM
+  signal:
+  - ALL
+  validator: enum
+  enabled: true
+  severity: HIGH
+  execution_order: 21
+  field: service_level
+  expected: Value ∈ the approved service-level set
+  remediation: Align service_level to the approved value set
+  owner: Enterprise Observability
+  version: '1.0'
+  status: Planned
+  notes: Depends on approved enum value set
+- rule_id: U-22
+  name: hosting_env In Enum
+  description: Value ∈ the approved hosting-environment set
+  category: Universal
+  tier: MEDIUM
+  signal:
+  - ALL
+  validator: enum
+  enabled: true
+  severity: HIGH
+  execution_order: 22
+  field: hosting_env
+  expected: Value ∈ the approved hosting-environment set
+  remediation: Align hosting_env to the approved value set
+  owner: Enterprise Observability
+  version: '1.0'
+  status: Planned
+  notes: Depends on approved enum value set
+- rule_id: U-23
+  name: No Empty Mandatory Tag Values
+  description: No tag value is "" or whitespace-only
+  category: Universal
+  tier: EASY
+  signal:
+  - ALL
+  validator: custom
+  enabled: true
+  severity: CRITICAL
+  execution_order: 23
+  field: (the 12 universal tags)
+  expected: No tag value is "" or whitespace-only
+  remediation: Remediate (the 12 universal tags) per pass criteria
+  owner: Enterprise Observability
+  version: '1.0'
+  status: Planned
+  notes: null
+- rule_id: U-24
+  name: Field Type Correctness
+  description: Each field matches its declared MELT type
+  category: Universal
+  tier: EASY
+  signal:
+  - ALL
+  validator: type
+  enabled: true
+  severity: CRITICAL
+  execution_order: 24
+  field: tags (string), value (number)
+  expected: Each field matches its declared MELT type
+  remediation: Fix tags (string), value (number) data type at source
+  owner: Enterprise Observability
+  version: '1.0'
+  status: Planned
+  notes: null
+- rule_id: U-25
+  name: No Conflicting Tags
+  description: No duplicate key carrying contradictory values
+  category: Universal
+  tier: MEDIUM
+  signal:
+  - ALL
+  validator: uniqueness
+  enabled: true
+  severity: HIGH
+  execution_order: 25
+  field: tags
+  expected: No duplicate key carrying contradictory values
+  remediation: Deduplicate records at source / pipeline
+  owner: Enterprise Observability
+  version: '1.0'
+  status: Planned
+  notes: null
+- rule_id: U-26
+  name: Domain Present
+  description: Domain field present and non-null
+  category: Universal
+  tier: EASY
+  signal:
+  - ALL
+  validator: required
+  enabled: true
+  severity: CRITICAL
+  execution_order: 26
+  field: domain
+  expected: non-null
+  remediation: Populate domain tag
+  owner: Enterprise Observability
+  version: '1.0'
+  status: Planned
+  notes: null
+- rule_id: U-27
+  name: Domain In Enum
+  description: Value ∈ {infrastructure, application, network}
+  category: Universal
+  tier: EASY
+  signal:
+  - ALL
+  validator: enum
+  enabled: true
+  severity: CRITICAL
+  execution_order: 27
+  field: domain
+  expected: Value ∈ {infrastructure, application, network}
+  remediation: Align domain to the approved value set
+  owner: Enterprise Observability
+  version: '1.0'
+  status: Planned
+  notes: Depends on approved enum value set
+- rule_id: U-28
+  name: No Duplicate Records
+  description: No duplicate records within the dedup window
+  category: Universal
+  tier: COMPLEX
+  signal:
+  - ALL
+  validator: uniqueness
+  enabled: true
+  severity: MEDIUM
+  execution_order: 28
+  field: (signal, timestamp, key)
+  expected: No duplicate records within the dedup window
+  remediation: Deduplicate records at source / pipeline
+  owner: Enterprise Observability
+  version: '1.0'
+  status: Planned
+  notes: null
+- rule_id: I-01
+  name: metric.name Present
+  description: Non-null metric identifier on every point
+  category: Infrastructure
+  tier: EASY
+  signal:
+  - METRICS
+  validator: required
+  enabled: true
+  severity: CRITICAL
+  execution_order: 29
+  field: metric.name
+  expected: non-null
+  remediation: Populate metric.name field at source
+  owner: Enterprise Observability
+  version: '1.0'
+  status: Planned
+  notes: null
+- rule_id: I-02
+  name: metric.value Present & Numeric
+  description: Present and of numeric type
+  category: Infrastructure
+  tier: EASY
+  signal:
+  - METRICS
+  validator: type
+  enabled: true
+  severity: CRITICAL
+  execution_order: 30
+  field: metric.value
+  expected: Present and of numeric type
+  remediation: Fix metric.value data type at source
+  owner: Enterprise Observability
+  version: '1.0'
+  status: Planned
+  notes: null
+- rule_id: I-03
+  name: metric.value Finite
+  description: Not NaN and not ±Infinity
+  category: Infrastructure
+  tier: MEDIUM
+  signal:
+  - METRICS
+  validator: range
+  enabled: true
+  severity: HIGH
+  execution_order: 31
+  field: metric.value
+  expected: Not NaN and not ±Infinity
+  remediation: Investigate and correct out-of-range metric.value values
+  owner: Enterprise Observability
+  version: '1.0'
+  status: Planned
+  notes: null
+- rule_id: I-04
+  name: metric.unit Present
+  description: Unit field present
+  category: Infrastructure
+  tier: EASY
+  signal:
+  - METRICS
+  validator: required
+  enabled: true
+  severity: CRITICAL
+  execution_order: 32
+  field: unit
+  expected: non-null
+  remediation: Populate unit field at source
+  owner: Enterprise Observability
+  version: '1.0'
+  status: Planned
+  notes: null
+- rule_id: I-05
+  name: metric.unit Consistency
+  description: Unit consistent for a given metric name
+  category: Infrastructure
+  tier: MEDIUM
+  signal:
+  - METRICS
+  validator: consistency
+  enabled: true
+  severity: HIGH
+  execution_order: 33
+  field: unit
+  expected: Unit consistent for a given metric name
+  remediation: Standardize unit across records and sources
+  owner: Enterprise Observability
+  version: '1.0'
+  status: Planned
+  notes: null
+- rule_id: I-06
+  name: Metric Type Present
+  description: Metric kind present (gauge / counter / …)
+  category: Infrastructure
+  tier: EASY
+  signal:
+  - METRICS
+  validator: required
+  enabled: true
+  severity: CRITICAL
+  execution_order: 34
+  field: type
+  expected: non-null
+  remediation: Populate type field at source
+  owner: Enterprise Observability
+  version: '1.0'
+  status: Planned
+  notes: null
+- rule_id: I-07
+  name: Sample Interval Consistency
+  description: Scrape/step interval consistent per series
+  category: Infrastructure
+  tier: MEDIUM
+  signal:
+  - METRICS
+  validator: consistency
+  enabled: true
+  severity: HIGH
+  execution_order: 35
+  field: interval / step
+  expected: Scrape/step interval consistent per series
+  remediation: Standardize interval / step across records and sources
+  owner: Enterprise Observability
+  version: '1.0'
+  status: Planned
+  notes: null
+- rule_id: I-08
+  name: 'Linux log: OS Present'
+  description: Present when the source is a Linux log
+  category: Infrastructure
+  tier: MEDIUM
+  signal:
+  - LOGS
+  validator: required
+  enabled: true
+  severity: HIGH
+  execution_order: 36
+  field: os
+  expected: non-null
+  remediation: Populate os field at source
+  owner: Enterprise Observability
+  version: '1.0'
+  status: Planned
+  notes: 'Conditional: evaluated only for Linux log records'
+- rule_id: I-09
+  name: 'Linux log: os_version Present'
+  description: Present when the source is a Linux log
+  category: Infrastructure
+  tier: MEDIUM
+  signal:
+  - LOGS
+  validator: required
+  enabled: true
+  severity: HIGH
+  execution_order: 37
+  field: os_version
+  expected: non-null
+  remediation: Populate os_version field at source
+  owner: Enterprise Observability
+  version: '1.0'
+  status: Planned
+  notes: 'Conditional: evaluated only for Linux log records'
+- rule_id: I-10
+  name: 'Linux log: Path Present'
+  description: Present when the source is a Linux log
+  category: Infrastructure
+  tier: MEDIUM
+  signal:
+  - LOGS
+  validator: required
+  enabled: true
+  severity: HIGH
+  execution_order: 38
+  field: path
+  expected: non-null
+  remediation: Populate path field at source
+  owner: Enterprise Observability
+  version: '1.0'
+  status: Planned
+  notes: null
+- rule_id: I-11
+  name: 'Windows log: OS Present'
+  description: Present when a Windows event log
+  category: Infrastructure
+  tier: MEDIUM
+  signal:
+  - LOGS
+  validator: required
+  enabled: true
+  severity: HIGH
+  execution_order: 39
+  field: os
+  expected: non-null
+  remediation: Populate os field at source
+  owner: Enterprise Observability
+  version: '1.0'
+  status: Planned
+  notes: 'Conditional: evaluated only for Windows event log records'
+- rule_id: I-12
+  name: 'Windows log: os_version Present'
+  description: Present when a Windows event log
+  category: Infrastructure
+  tier: MEDIUM
+  signal:
+  - LOGS
+  validator: required
+  enabled: true
+  severity: HIGH
+  execution_order: 40
+  field: os_version
+  expected: non-null
+  remediation: Populate os_version field at source
+  owner: Enterprise Observability
+  version: '1.0'
+  status: Planned
+  notes: 'Conditional: evaluated only for Windows event log records'
+- rule_id: I-13
+  name: 'Windows log: Channel Present'
+  description: Present when a Windows event log
+  category: Infrastructure
+  tier: MEDIUM
+  signal:
+  - LOGS
+  validator: required
+  enabled: true
+  severity: HIGH
+  execution_order: 41
+  field: Channel
+  expected: non-null
+  remediation: Populate Channel field at source
+  owner: Enterprise Observability
+  version: '1.0'
+  status: Planned
+  notes: 'Conditional: evaluated only for Windows event log records'
+- rule_id: I-14
+  name: 'Windows log: Computer Present'
+  description: Present when a Windows event log
+  category: Infrastructure
+  tier: MEDIUM
+  signal:
+  - LOGS
+  validator: required
+  enabled: true
+  severity: HIGH
+  execution_order: 42
+  field: Computer
+  expected: non-null
+  remediation: Populate Computer field at source
+  owner: Enterprise Observability
+  version: '1.0'
+  status: Planned
+  notes: 'Conditional: evaluated only for Windows event log records'
+- rule_id: I-15
+  name: 'Windows log: EventID Present'
+  description: Present when a Windows event log
+  category: Infrastructure
+  tier: MEDIUM
+  signal:
+  - LOGS
+  validator: required
+  enabled: true
+  severity: HIGH
+  execution_order: 43
+  field: EventID
+  expected: non-null
+  remediation: Populate EventID field at source
+  owner: Enterprise Observability
+  version: '1.0'
+  status: Planned
+  notes: 'Conditional: evaluated only for Windows event log records'
+- rule_id: I-16
+  name: 'K8s: Namespace Present'
+  description: Present when hosting_env is Kubernetes
+  category: Infrastructure
+  tier: MEDIUM
+  signal:
+  - METRICS
+  - LOGS
+  validator: required
+  enabled: true
+  severity: HIGH
+  execution_order: 44
+  field: namespace
+  expected: non-null
+  remediation: Populate namespace field at source
+  owner: Enterprise Observability
+  version: '1.0'
+  status: Planned
+  notes: 'Conditional: evaluated only when hosting_env is Kubernetes'
+- rule_id: I-17
+  name: 'K8s: Pod Present'
+  description: Present when hosting_env is Kubernetes
+  category: Infrastructure
+  tier: MEDIUM
+  signal:
+  - METRICS
+  - LOGS
+  validator: required
+  enabled: true
+  severity: HIGH
+  execution_order: 45
+  field: pod
+  expected: non-null
+  remediation: Populate pod field at source
+  owner: Enterprise Observability
+  version: '1.0'
+  status: Planned
+  notes: 'Conditional: evaluated only when hosting_env is Kubernetes'
+- rule_id: I-18
+  name: 'K8s: Container Present'
+  description: Present when hosting_env is Kubernetes
+  category: Infrastructure
+  tier: MEDIUM
+  signal:
+  - METRICS
+  - LOGS
+  validator: required
+  enabled: true
+  severity: HIGH
+  execution_order: 46
+  field: container
+  expected: non-null
+  remediation: Populate container field at source
+  owner: Enterprise Observability
+  version: '1.0'
+  status: Planned
+  notes: 'Conditional: evaluated only when hosting_env is Kubernetes'
+- rule_id: I-19
+  name: 'K8s: Cluster Present'
+  description: Present when hosting_env is Kubernetes
+  category: Infrastructure
+  tier: MEDIUM
+  signal:
+  - METRICS
+  - LOGS
+  validator: required
+  enabled: true
+  severity: HIGH
+  execution_order: 47
+  field: cluster
+  expected: non-null
+  remediation: Populate cluster field at source
+  owner: Enterprise Observability
+  version: '1.0'
+  status: Planned
+  notes: 'Conditional: evaluated only when hosting_env is Kubernetes'
+- rule_id: I-20
+  name: 'K8s: Node Present'
+  description: Present when hosting_env is Kubernetes
+  category: Infrastructure
+  tier: MEDIUM
+  signal:
+  - METRICS
+  - LOGS
+  validator: required
+  enabled: true
+  severity: HIGH
+  execution_order: 48
+  field: node
+  expected: non-null
+  remediation: Populate node field at source
+  owner: Enterprise Observability
+  version: '1.0'
+  status: Planned
+  notes: 'Conditional: evaluated only when hosting_env is Kubernetes'
+- rule_id: I-21
+  name: server_location Resolvable
+  description: Resolves to a known site in the CMDB
+  category: Infrastructure
+  tier: COMPLEX
+  signal:
+  - ALL
+  validator: referential
+  enabled: true
+  severity: MEDIUM
+  execution_order: 49
+  field: server_location
+  expected: Resolves to a known site in the CMDB
+  remediation: Reconcile server_location with CMDB / reference data
+  owner: Enterprise Observability
+  version: '1.0'
+  status: Planned
+  notes: null
+- rule_id: I-22
+  name: Metric Cardinality Drift
+  description: Series label cardinality within baseline tolerance
+  category: Infrastructure
+  tier: COMPLEX
+  signal:
+  - METRICS
+  validator: baseline
+  enabled: true
+  severity: MEDIUM
+  execution_order: 50
+  field: label set
+  expected: Series label cardinality within baseline tolerance
+  remediation: Investigate drift against rolling baseline
+  owner: Enterprise Observability
+  version: '1.0'
+  status: Planned
+  notes: null
+- rule_id: A-01
+  name: trace_id Present
+  description: Present on every span/trace record
+  category: Application
+  tier: EASY
+  signal:
+  - TRACES
+  validator: required
+  enabled: true
+  severity: CRITICAL
+  execution_order: 51
+  field: trace_id
+  expected: non-null
+  remediation: Populate trace_id field at source
+  owner: Enterprise Observability
+  version: '1.0'
+  status: Planned
+  notes: null
+- rule_id: A-02
+  name: span_id Present
+  description: Present on every span record
+  category: Application
+  tier: EASY
+  signal:
+  - TRACES
+  validator: required
+  enabled: true
+  severity: CRITICAL
+  execution_order: 52
+  field: span_id
+  expected: non-null
+  remediation: Populate span_id field at source
+  owner: Enterprise Observability
+  version: '1.0'
+  status: Planned
+  notes: null
+- rule_id: A-03
+  name: trace_id Format Valid
+  description: Valid hex / expected length
+  category: Application
+  tier: MEDIUM
+  signal:
+  - TRACES
+  validator: format
+  enabled: true
+  severity: HIGH
+  execution_order: 53
+  field: trace_id
+  expected: Valid hex / expected length
+  remediation: Correct trace_id format at source/pipeline
+  owner: Enterprise Observability
+  version: '1.0'
+  status: Planned
+  notes: null
+- rule_id: A-04
+  name: span_id Format Valid
+  description: Valid hex / expected length
+  category: Application
+  tier: MEDIUM
+  signal:
+  - TRACES
+  validator: format
+  enabled: true
+  severity: HIGH
+  execution_order: 54
+  field: span_id
+  expected: Valid hex / expected length
+  remediation: Correct span_id format at source/pipeline
+  owner: Enterprise Observability
+  version: '1.0'
+  status: Planned
+  notes: null
+- rule_id: A-05
+  name: parent_id Present (non-root)
+  description: Present on non-root spans
+  category: Application
+  tier: MEDIUM
+  signal:
+  - TRACES
+  validator: required
+  enabled: true
+  severity: HIGH
+  execution_order: 55
+  field: parent_id
+  expected: non-null
+  remediation: Populate parent_id field at source
+  owner: Enterprise Observability
+  version: '1.0'
+  status: Planned
+  notes: null
+- rule_id: A-06
+  name: Span Tree Integrity
+  description: parent_id references an existing span in the trace
+  category: Application
+  tier: COMPLEX
+  signal:
+  - TRACES
+  validator: referential
+  enabled: true
+  severity: MEDIUM
+  execution_order: 56
+  field: span_id, parent_id
+  expected: parent_id references an existing span in the trace
+  remediation: Reconcile span_id, parent_id with CMDB / reference data
+  owner: Enterprise Observability
+  version: '1.0'
+  status: Planned
+  notes: null
+- rule_id: A-07
+  name: Span start/end Present
+  description: Both span timestamps present
+  category: Application
+  tier: EASY
+  signal:
+  - TRACES
+  validator: required
+  enabled: true
+  severity: CRITICAL
+  execution_order: 57
+  field: start_time, end_time
+  expected: non-null
+  remediation: Populate start_time, end_time field at source
+  owner: Enterprise Observability
+  version: '1.0'
+  status: Planned
+  notes: null
+- rule_id: A-08
+  name: Span Duration Valid
+  description: end_time ≥ start_time (duration ≥ 0)
+  category: Application
+  tier: MEDIUM
+  signal:
+  - TRACES
+  validator: range
+  enabled: true
+  severity: HIGH
+  execution_order: 58
+  field: start_time, end_time
+  expected: end_time ≥ start_time (duration ≥ 0)
+  remediation: Investigate and correct out-of-range start_time, end_time values
+  owner: Enterprise Observability
+  version: '1.0'
+  status: Planned
+  notes: null
+- rule_id: A-09
+  name: Span Status Present
+  description: Span status / result present
+  category: Application
+  tier: EASY
+  signal:
+  - TRACES
+  validator: required
+  enabled: true
+  severity: CRITICAL
+  execution_order: 59
+  field: status
+  expected: non-null
+  remediation: Populate status field at source
+  owner: Enterprise Observability
+  version: '1.0'
+  status: Planned
+  notes: null
+- rule_id: A-10
+  name: service.name On Span
+  description: service.name present on the span
+  category: Application
+  tier: EASY
+  signal:
+  - TRACES
+  validator: required
+  enabled: true
+  severity: CRITICAL
+  execution_order: 60
+  field: service.name
+  expected: non-null
+  remediation: Populate service.name field at source
+  owner: Enterprise Observability
+  version: '1.0'
+  status: Planned
+  notes: null
+- rule_id: A-11
+  name: App Log Severity Present
+  description: Present on application log records
+  category: Application
+  tier: EASY
+  signal:
+  - LOGS
+  validator: required
+  enabled: true
+  severity: CRITICAL
+  execution_order: 61
+  field: severity
+  expected: non-null
+  remediation: Populate severity field at source
+  owner: Enterprise Observability
+  version: '1.0'
+  status: Planned
+  notes: null
+- rule_id: A-12
+  name: App Log Severity In Enum
+  description: Value ∈ {INFO, WARN, ERROR, CRITICAL, DEBUG}
+  category: Application
+  tier: EASY
+  signal:
+  - LOGS
+  validator: enum
+  enabled: true
+  severity: CRITICAL
+  execution_order: 62
+  field: severity
+  expected: Value ∈ {INFO, WARN, ERROR, CRITICAL, DEBUG}
+  remediation: Align severity to the approved value set
+  owner: Enterprise Observability
+  version: '1.0'
+  status: Planned
+  notes: Depends on approved enum value set
+- rule_id: A-13
+  name: App Log Body Present
+  description: Non-null, non-empty message
+  category: Application
+  tier: EASY
+  signal:
+  - LOGS
+  validator: required
+  enabled: true
+  severity: CRITICAL
+  execution_order: 63
+  field: body / message
+  expected: non-null
+  remediation: Populate body / message field at source
+  owner: Enterprise Observability
+  version: '1.0'
+  status: Planned
+  notes: null
+- rule_id: A-14
+  name: App Log Trace Linkage Tag
+  description: Carries trace_id when part of a traced flow
+  category: Application
+  tier: MEDIUM
+  signal:
+  - LOGS
+  validator: custom
+  enabled: true
+  severity: HIGH
+  execution_order: 64
+  field: trace_id
+  expected: Carries trace_id when part of a traced flow
+  remediation: Remediate trace_id per pass criteria
+  owner: Enterprise Observability
+  version: '1.0'
+  status: Planned
+  notes: null
+- rule_id: A-15
+  name: Application Name Present
+  description: APM application name present
+  category: Application
+  tier: EASY
+  signal:
+  - METRICS
+  validator: required
+  enabled: true
+  severity: CRITICAL
+  execution_order: 65
+  field: application
+  expected: non-null
+  remediation: Populate application field at source
+  owner: Enterprise Observability
+  version: '1.0'
+  status: Planned
+  notes: null
+- rule_id: A-16
+  name: Business Txn / Metric Path Present
+  description: Metric path / business-transaction name present
+  category: Application
+  tier: EASY
+  signal:
+  - METRICS
+  validator: required
+  enabled: true
+  severity: CRITICAL
+  execution_order: 66
+  field: metric_path
+  expected: non-null
+  remediation: Populate metric_path field at source
+  owner: Enterprise Observability
+  version: '1.0'
+  status: Planned
+  notes: null
+- rule_id: A-17
+  name: APM Metric Value Numeric
+  description: Present and numeric
+  category: Application
+  tier: EASY
+  signal:
+  - METRICS
+  validator: type
+  enabled: true
+  severity: CRITICAL
+  execution_order: 67
+  field: metricValue
+  expected: Present and numeric
+  remediation: Fix metricValue data type at source
+  owner: Enterprise Observability
+  version: '1.0'
+  status: Planned
+  notes: null
+- rule_id: A-18
+  name: APM Metric Sane Bounds
+  description: Response-time / calls within plausible bounds
+  category: Application
+  tier: MEDIUM
+  signal:
+  - METRICS
+  validator: range
+  enabled: true
+  severity: HIGH
+  execution_order: 68
+  field: metricValue
+  expected: Response-time / calls within plausible bounds
+  remediation: Investigate and correct out-of-range metricValue values
+  owner: Enterprise Observability
+  version: '1.0'
+  status: Planned
+  notes: null
+- rule_id: A-19
+  name: service.name → CMDB CI
+  description: Resolves to a CMDB application CI
+  category: Application
+  tier: COMPLEX
+  signal:
+  - ALL
+  validator: referential
+  enabled: true
+  severity: MEDIUM
+  execution_order: 69
+  field: service.name
+  expected: Resolves to a CMDB application CI
+  remediation: Reconcile service.name with CMDB / reference data
+  owner: Enterprise Observability
+  version: '1.0'
+  status: Planned
+  notes: null
+- rule_id: A-20
+  name: Log → Trace Linkage
+  description: Log's trace_id exists in the traces signal (≥ 90%)
+  category: Application
+  tier: COMPLEX
+  signal:
+  - LOGS
+  - TRACES
+  validator: correlation
+  enabled: true
+  severity: MEDIUM
+  execution_order: 70
+  field: trace_id
+  expected: Log's trace_id exists in the traces signal (≥ 90%)
+  remediation: Fix instrumentation to restore cross-signal linkage
+  owner: Enterprise Observability
+  version: '1.0'
+  status: Planned
+  notes: null
+- rule_id: N-01
+  name: event.id Present
+  description: Present on every event
+  category: Network
+  tier: EASY
+  signal:
+  - EVENTS
+  validator: required
+  enabled: true
+  severity: CRITICAL
+  execution_order: 71
+  field: event.id
+  expected: non-null
+  remediation: Populate event.id field at source
+  owner: Enterprise Observability
+  version: '1.0'
+  status: Planned
+  notes: null
+- rule_id: N-02
+  name: Event Timestamp Present
+  description: Present and non-null
+  category: Network
+  tier: EASY
+  signal:
+  - EVENTS
+  validator: required
+  enabled: true
+  severity: CRITICAL
+  execution_order: 72
+  field: timestamp
+  expected: non-null
+  remediation: Populate timestamp field at source
+  owner: Enterprise Observability
+  version: '1.0'
+  status: Planned
+  notes: null
+- rule_id: N-03
+  name: Event Timestamp NS Precision
+  description: 19-digit nanosecond epoch
+  category: Network
+  tier: MEDIUM
+  signal:
+  - EVENTS
+  validator: format
+  enabled: true
+  severity: HIGH
+  execution_order: 73
+  field: timestamp
+  expected: 19-digit nanosecond epoch
+  remediation: Correct timestamp format at source/pipeline
+  owner: Enterprise Observability
+  version: '1.0'
+  status: Planned
+  notes: null
+- rule_id: N-04
+  name: Severity Present
+  description: Present on the event
+  category: Network
+  tier: EASY
+  signal:
+  - EVENTS
+  validator: required
+  enabled: true
+  severity: CRITICAL
+  execution_order: 74
+  field: severity
+  expected: non-null
+  remediation: Populate severity field at source
+  owner: Enterprise Observability
+  version: '1.0'
+  status: Planned
+  notes: null
+- rule_id: N-05
+  name: Severity In Enum
+  description: Value ∈ {INFO, WARN, ERROR, CRITICAL, DEBUG}
+  category: Network
+  tier: EASY
+  signal:
+  - EVENTS
+  validator: enum
+  enabled: true
+  severity: CRITICAL
+  execution_order: 75
+  field: severity
+  expected: Value ∈ {INFO, WARN, ERROR, CRITICAL, DEBUG}
+  remediation: Align severity to the approved value set
+  owner: Enterprise Observability
+  version: '1.0'
+  status: Planned
+  notes: Depends on approved enum value set
+- rule_id: N-06
+  name: network.source Present
+  description: Present on the event
+  category: Network
+  tier: EASY
+  signal:
+  - EVENTS
+  validator: required
+  enabled: true
+  severity: CRITICAL
+  execution_order: 76
+  field: network.source
+  expected: non-null
+  remediation: Populate network.source field at source
+  owner: Enterprise Observability
+  version: '1.0'
+  status: Planned
+  notes: null
+- rule_id: N-07
+  name: network.source Resolvable
+  description: Site code resolves to a CMDB site
+  category: Network
+  tier: MEDIUM
+  signal:
+  - EVENTS
+  validator: referential
+  enabled: true
+  severity: HIGH
+  execution_order: 77
+  field: network.source
+  expected: Site code resolves to a CMDB site
+  remediation: Reconcile network.source with CMDB / reference data
+  owner: Enterprise Observability
+  version: '1.0'
+  status: Planned
+  notes: null
+- rule_id: N-08
+  name: Region Present & In Enum
+  description: Business region ∈ {NA, EMEA, ASPAC, LATAM}
+  category: Network
+  tier: MEDIUM
+  signal:
+  - EVENTS
+  validator: enum
+  enabled: true
+  severity: HIGH
+  execution_order: 78
+  field: region
+  expected: Business region ∈ {NA, EMEA, ASPAC, LATAM}
+  remediation: Align region to the approved value set
+  owner: Enterprise Observability
+  version: '1.0'
+  status: Planned
+  notes: Depends on approved enum value set
+- rule_id: N-09
+  name: Impact Present
+  description: Selector impact (high/medium/low) present
+  category: Network
+  tier: EASY
+  signal:
+  - EVENTS
+  validator: required
+  enabled: true
+  severity: CRITICAL
+  execution_order: 79
+  field: impact
+  expected: non-null
+  remediation: Populate impact field at source
+  owner: Enterprise Observability
+  version: '1.0'
+  status: Planned
+  notes: null
+- rule_id: N-10
+  name: Impact → Severity Mapping
+  description: Mapped per table (High→CRITICAL, Medium→ERROR, Low→WARN)
+  category: Network
+  tier: MEDIUM
+  signal:
+  - EVENTS
+  validator: mapping
+  enabled: true
+  severity: HIGH
+  execution_order: 80
+  field: impact, severity
+  expected: Mapped per table (High→CRITICAL, Medium→ERROR, Low→WARN)
+  remediation: Correct mapping table / integration configuration
+  owner: Enterprise Observability
+  version: '1.0'
+  status: Planned
+  notes: null
+- rule_id: N-11
+  name: Domain = Network
+  description: Domain value is network
+  category: Network
+  tier: EASY
+  signal:
+  - EVENTS
+  validator: custom
+  enabled: true
+  severity: CRITICAL
+  execution_order: 81
+  field: domain
+  expected: Domain value is network
+  remediation: Remediate domain per pass criteria
+  owner: Enterprise Observability
+  version: '1.0'
+  status: Planned
+  notes: null
+- rule_id: N-12
+  name: Device Identifier Present
+  description: Network device/node identifier present
+  category: Network
+  tier: EASY
+  signal:
+  - EVENTS
+  validator: required
+  enabled: true
+  severity: CRITICAL
+  execution_order: 82
+  field: device / node id
+  expected: non-null
+  remediation: Populate device / node id field at source
+  owner: Enterprise Observability
+  version: '1.0'
+  status: Planned
+  notes: null
+- rule_id: N-13
+  name: correlation_id Present
+  description: Selector number retained as a secondary id
+  category: Network
+  tier: EASY
+  signal:
+  - EVENTS
+  validator: required
+  enabled: true
+  severity: CRITICAL
+  execution_order: 83
+  field: correlation_id
+  expected: non-null
+  remediation: Populate correlation_id field at source
+  owner: Enterprise Observability
+  version: '1.0'
+  status: Planned
+  notes: null
+- rule_id: N-14
+  name: Event Body Present
+  description: Event description / body present
+  category: Network
+  tier: EASY
+  signal:
+  - EVENTS
+  validator: required
+  enabled: true
+  severity: CRITICAL
+  execution_order: 84
+  field: description / body
+  expected: non-null
+  remediation: Populate description / body field at source
+  owner: Enterprise Observability
+  version: '1.0'
+  status: Planned
+  notes: null
+- rule_id: N-15
+  name: event.id Uniqueness
+  description: No duplicate event ids within the window
+  category: Network
+  tier: COMPLEX
+  signal:
+  - EVENTS
+  validator: uniqueness
+  enabled: true
+  severity: MEDIUM
+  execution_order: 85
+  field: event.id
+  expected: No duplicate event ids within the window
+  remediation: Deduplicate records at source / pipeline
+  owner: Enterprise Observability
+  version: '1.0'
+  status: Planned
+  notes: null
+- rule_id: N-16
+  name: Event → Incident Mapping
+  description: Maps to a valid ServiceNow incident
+  category: Network
+  tier: COMPLEX
+  signal:
+  - EVENTS
+  validator: mapping
+  enabled: true
+  severity: MEDIUM
+  execution_order: 86
+  field: event.id, INC reference
+  expected: Maps to a valid ServiceNow incident
+  remediation: Correct mapping table / integration configuration
+  owner: Enterprise Observability
+  version: '1.0'
+  status: Planned
+  notes: null
+- rule_id: N-17
+  name: INC Number Durable
+  description: Durable INC number present when an incident is cut
+  category: Network
+  tier: COMPLEX
+  signal:
+  - EVENTS
+  validator: referential
+  enabled: true
+  severity: MEDIUM
+  execution_order: 87
+  field: INC number
+  expected: Durable INC number present when an incident is cut
+  remediation: Reconcile INC number with CMDB / reference data
+  owner: Enterprise Observability
+  version: '1.0'
+  status: Planned
+  notes: null
+- rule_id: X-01
+  name: Join-key Presence Across Sources
+  description: Present across every contributing datasource
+  category: Cross-Domain
+  tier: COMPLEX
+  signal:
+  - ALL
+  validator: coverage
+  enabled: true
+  severity: MEDIUM
+  execution_order: 88
+  field: service.name
+  expected: Present across every contributing datasource
+  remediation: Onboard missing sources or populate join key
+  owner: Enterprise Observability
+  version: '1.0'
+  status: Planned
+  notes: Requires reference context (CMDB snapshot / other signals / baseline)
+- rule_id: X-02
+  name: service.name → CMDB CI
+  description: Resolves to an existing, active CMDB CI
+  category: Cross-Domain
+  tier: COMPLEX
+  signal:
+  - ALL
+  validator: referential
+  enabled: true
+  severity: MEDIUM
+  execution_order: 89
+  field: service.name
+  expected: Resolves to an existing, active CMDB CI
+  remediation: Reconcile service.name with CMDB / reference data
+  owner: Enterprise Observability
+  version: '1.0'
+  status: Planned
+  notes: Requires reference context (CMDB snapshot / other signals / baseline)
+- rule_id: X-03
+  name: site_id Join Consistency
+  description: Consistent join value across the five display datasources
+  category: Cross-Domain
+  tier: COMPLEX
+  signal:
+  - ALL
+  validator: consistency
+  enabled: true
+  severity: MEDIUM
+  execution_order: 90
+  field: site_id
+  expected: Consistent join value across the five display datasources
+  remediation: Standardize site_id across records and sources
+  owner: Enterprise Observability
+  version: '1.0'
+  status: Planned
+  notes: Requires reference context (CMDB snapshot / other signals / baseline)
+- rule_id: X-04
+  name: Cross-signal Timestamp Alignment
+  description: Same entity's signals fall within a time tolerance
+  category: Cross-Domain
+  tier: COMPLEX
+  signal:
+  - METRICS
+  - LOGS
+  - TRACES
+  validator: consistency
+  enabled: true
+  severity: MEDIUM
+  execution_order: 91
+  field: timestamp
+  expected: Same entity's signals fall within a time tolerance
+  remediation: Standardize timestamp across records and sources
+  owner: Enterprise Observability
+  version: '1.0'
+  status: Planned
+  notes: Requires reference context (CMDB snapshot / other signals / baseline)
+- rule_id: X-05
+  name: Cross-signal Tag Consistency
+  description: Same entity carries the same tag values across signals
+  category: Cross-Domain
+  tier: COMPLEX
+  signal:
+  - ALL
+  validator: consistency
+  enabled: true
+  severity: MEDIUM
+  execution_order: 92
+  field: region, app_id (per entity)
+  expected: Same entity carries the same tag values across signals
+  remediation: Standardize region, app_id (per entity) across records and sources
+  owner: Enterprise Observability
+  version: '1.0'
+  status: Planned
+  notes: Requires reference context (CMDB snapshot / other signals / baseline)
+- rule_id: X-06
+  name: Inventory Coverage
+  description: Every active CI is represented by ≥ 1 signal
+  category: Cross-Domain
+  tier: COMPLEX
+  signal:
+  - ALL
+  validator: coverage
+  enabled: true
+  severity: MEDIUM
+  execution_order: 93
+  field: CMDB CI vs signals
+  expected: Every active CI is represented by ≥ 1 signal
+  remediation: Onboard missing sources or populate join key
+  owner: Enterprise Observability
+  version: '1.0'
+  status: Planned
+  notes: Requires reference context (CMDB snapshot / other signals / baseline)
+- rule_id: X-07
+  name: Trace ↔ Metric Correlation
+  description: A traced service also reports metrics
+  category: Cross-Domain
+  tier: COMPLEX
+  signal:
+  - METRICS
+  - TRACES
+  validator: correlation
+  enabled: true
+  severity: MEDIUM
+  execution_order: 94
+  field: service.name
+  expected: A traced service also reports metrics
+  remediation: Fix instrumentation to restore cross-signal linkage
+  owner: Enterprise Observability
+  version: '1.0'
+  status: Planned
+  notes: Requires reference context (CMDB snapshot / other signals / baseline)
+- rule_id: X-08
+  name: Log ↔ Metric Correlation
+  description: A logging host also reports metrics
+  category: Cross-Domain
+  tier: COMPLEX
+  signal:
+  - METRICS
+  - LOGS
+  validator: correlation
+  enabled: true
+  severity: MEDIUM
+  execution_order: 95
+  field: host
+  expected: A logging host also reports metrics
+  remediation: Fix instrumentation to restore cross-signal linkage
+  owner: Enterprise Observability
+  version: '1.0'
+  status: Planned
+  notes: Requires reference context (CMDB snapshot / other signals / baseline)
+- rule_id: X-09
+  name: Join-key Completeness ≥ Target
+  description: Join key present on ≥ 90% of records
+  category: Cross-Domain
+  tier: COMPLEX
+  signal:
+  - ALL
+  validator: coverage
+  enabled: true
+  severity: MEDIUM
+  execution_order: 96
+  field: service.name
+  expected: Join key present on ≥ 90% of records
+  remediation: Onboard missing sources or populate join key
+  owner: Enterprise Observability
+  version: '1.0'
+  status: Planned
+  notes: Requires reference context (CMDB snapshot / other signals / baseline)
+- rule_id: X-10
+  name: No Orphan Signals
+  description: No signal with an unresolvable CI
+  category: Cross-Domain
+  tier: COMPLEX
+  signal:
+  - ALL
+  validator: referential
+  enabled: true
+  severity: MEDIUM
+  execution_order: 97
+  field: service.name
+  expected: No signal with an unresolvable CI
+  remediation: Reconcile service.name with CMDB / reference data
+  owner: Enterprise Observability
+  version: '1.0'
+  status: Planned
+  notes: Requires reference context (CMDB snapshot / other signals / baseline)
+- rule_id: X-11
+  name: Volume Anomaly vs Baseline
+  description: Per-source / signal volume within the expected band
+  category: Cross-Domain
+  tier: COMPLEX
+  signal:
+  - ALL
+  validator: baseline
+  enabled: true
+  severity: MEDIUM
+  execution_order: 98
+  field: record count
+  expected: Per-source / signal volume within the expected band
+  remediation: Investigate drift against rolling baseline
+  owner: Enterprise Observability
+  version: '1.0'
+  status: Planned
+  notes: Requires reference context (CMDB snapshot / other signals / baseline)
+- rule_id: X-12
+  name: Duplicate-entity Reconciliation
+  description: Same CI not double-counted across sources
+  category: Cross-Domain
+  tier: COMPLEX
+  signal:
+  - ALL
+  validator: uniqueness
+  enabled: true
+  severity: MEDIUM
+  execution_order: 99
+  field: CI identity
+  expected: Same CI not double-counted across sources
+  remediation: Deduplicate records at source / pipeline
+  owner: Enterprise Observability
+  version: '1.0'
+  status: Planned
+  notes: Requires reference context (CMDB snapshot / other signals / baseline)

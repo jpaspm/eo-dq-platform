@@ -1,0 +1,7 @@
+{
+    "service.name": "orderservice",
+    "host.name": "host-01",
+    "severity": "INFO",
+    "message": "Application started successfully",
+    "timestamp": "2026-07-16T12:00:00Z"
+}

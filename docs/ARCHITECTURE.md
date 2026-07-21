@@ -13,3 +13,15 @@ Collector Lambda -> S3(raw) -> DQ Engine Lambda -> S3(reports) -> Grafana
 
 ## Runtime
 Excel Catalogue -> Validator -> Runtime Generator -> dq_rules.yaml -> DQ Engine
+
+## Collector Architecture
+
+Collector
+↓
+Normalize Record
+↓
+Execution Engine
+↓
+Export Results
+
+

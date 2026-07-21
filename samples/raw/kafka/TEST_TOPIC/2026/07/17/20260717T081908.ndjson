@@ -1,0 +1,1 @@
+{"metadata": {"topic": "TEST_TOPIC", "partition": 0, "offset": 1}, "payload": {"hostname": "server01", "message": "Factory Test"}}

@@ -2,23 +2,15 @@
 
 ## Architecture
 
-Lambda
-
-↓
-
-Secrets Manager
-
-↓
-
 Kafka
-
 ↓
-
-Sample Messages
-
+KafkaCollector
 ↓
-
-Amazon S3
+Normalized Record
+↓
+Execution Engine
+↓
+Result Exporter
 
 ---
 
