@@ -1,95 +1,45 @@
 # Changelog
-# Changelog
 
-All notable changes to the Enterprise Observability Platform are documented in this file.
+All notable changes to the Enterprise Observability Data Quality Platform are documented here.
 
----
-
-## [0.2.0-alpha] - 2026-07-17
+## 2026-09 — Multi-Source DQ Integration Milestone
 
 ### Added
 
-#### Enterprise DQ Engine
-- Runtime Rule Loader
-- Validator Registry
-- Execution Engine
-- Runtime Models
-- Result Exporter
-- Runtime Rule Generator
-- Catalogue Validation Framework
-
-#### Kafka Collector
-- Introduced modular collector framework
-- Added BaseCollector abstraction
-- Added KafkaCollector implementation
-- Streaming message collection using generators
-- Kafka SSL authentication
-- Dynamic consumer group creation
-- JSON payload normalization
-
-#### Configuration
-- Added centralized collector configuration
-- Introduced CollectorMetadata
-- Runtime rule file configurable through YAML
-- Signal and Domain configurable through YAML
-
-#### Security
-- Added reusable AWS Secrets Manager integration
-- Automatic certificate extraction
-- Automatic SSL certificate generation
+- AppDynamics collector integration for application metrics.
+- AppDynamics application identity enrichment.
+- AppDynamics metric timestamp normalization to 19-digit epoch nanoseconds.
+- Consolidated pipeline execution across multiple configured sources.
+- Parallel collection of enabled sources using `ThreadPoolExecutor`.
+- Stable S3 report endpoint at `reports/latest/latest.json`.
+- Immutable S3 history report publication under `reports/history/`.
+- Lambda-based DQ report API.
+- API Gateway HTTP API endpoint for the latest report.
+- Grafana Infinity integration using the API Gateway endpoint.
+- Detailed AWS/Grafana integration documentation.
 
 ### Changed
 
-- Separated collection from validation.
-- Collector no longer performs Data Quality validation.
-- Removed coupling between Kafka consumer and report generation.
-- Introduced streaming collector architecture.
-- Improved configuration management.
+- Generic record normalization now preserves flat top-level source fields while flattening supported nested envelopes.
+- Universal rule applicability now correctly handles `all` and `*` before evaluating missing dimensions.
+- DQ execution returns explicit PASS, FAIL, SKIPPED, and ERROR accounting.
+- Runner configuration supports Kafka and AppDynamics as independently enabled sources.
+- Report publication separates immutable historical artifacts from the stable latest consumer object.
 
-### Planned
+### Validated
 
-- Publisher Framework
-- S3 Publisher
-- OTLP Collector
-- CloudWatch Collector
-- Splunk Collector
-- Databricks Publisher
+- AppDynamics collection and DQ validation with 300 sampled records.
+- DQ engine execution with configured runtime rules.
+- S3 latest report publication.
+- S3 history report publication.
+- Lambda report retrieval with HTTP 200 and valid JSON.
+- EKS/Grafana environment reachability to the API Gateway endpoint.
+- Grafana Infinity access after configuring the API Gateway hostname in Allowed Hosts.
 
-All notable changes to the Enterprise Observability Platform will be documented here.
+### Known Gaps
 
-The format is based on Keep a Changelog.
-
-Versioning follows Semantic Versioning.
-
----
-
-## [1.0.0-alpha]
-
-### Added
-
-- Initial Enterprise Observability Platform structure
-- EO-Core
-- EO-DQ Engine
-- Documentation
-- Architecture
-- ADR Library
-- Rule Catalogue
-- Runtime Generator
-
-### Planned
-
-- Universal Validators
-- Runtime Engine
-- Report Generator
-- Collector Integration
-- Grafana Dashboards
-
-## [1.0.0-alpha]
-
-### Added
-
-- EO-001 Base Validator Framework
-- BaseValidator abstract class
-- Validator metadata support
-- Common helper methods
-- Base validator unit tests
+- Source-level DQ summary section is not yet finalized in the report schema.
+- Full combined Kafka + AppDynamics run remains the next validation checkpoint after the parallel runner change.
+- Some rules require authoritative CMDB, range, or format definitions.
+- Production API authorization and operational controls require enterprise approval.
+- Report lifecycle/retention policy is not yet automated.
