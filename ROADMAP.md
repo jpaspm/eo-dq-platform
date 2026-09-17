@@ -1,156 +1,58 @@
-# Enterprise Observability Platform Roadmap
+# Enterprise Observability Data Quality Platform Roadmap
 
----
+## Completed Foundation
 
-## Version 1.0
+- Shared EO core models and exceptions.
+- Modular collector framework.
+- Kafka collector.
+- AWS Secrets Manager integration.
+- Runtime DQ rule loader.
+- Validator registry and execution engine.
+- Dataset profiling and applicability filtering.
+- JSON reporting.
+- S3 persistence.
+- AppDynamics collector.
+- Source record normalization.
+- Parallel collection of enabled sources.
+- Lambda/API Gateway report serving.
+- Grafana Infinity integration.
 
-### Sprint 1
+## Next Milestone — Consolidated Multi-Source Reporting
 
-Universal Validation Framework
+1. Run Kafka and AppDynamics together and capture actual source-specific execution totals.
+2. Add a `sources[]` section to the report.
+3. Preserve all existing report fields consumed by Grafana.
+4. Add source/product/domain/signal identity to source summaries.
+5. Add source-aware Grafana panels.
+6. Add report comparison/trending using immutable history.
 
-- Required Validator
-- Datatype Validator
-- Enum Validator
-- Regex Validator
-- Timestamp Validator
+## DQ Engine Enhancements
 
----
+- Authoritative CMDB referential validation.
+- Enterprise-approved regex/format rules.
+- Range-bound validation where specifications exist.
+- Duplicate detection.
+- Correlation validation.
+- Cross-dataset validation.
 
-### Sprint 2
+## Additional Sources
 
-Runtime Execution Engine
+- Splunk.
+- OpenTelemetry.
+- CloudWatch.
+- OCI Logging.
+- Additional REST-based observability platforms.
 
-- Rule Loader
-- Rule Execution
-- Execution Context
-- Validation Results
+## Platform Operations
 
----
+- Enterprise API authorization.
+- API throttling and monitoring.
+- S3 lifecycle/retention policy.
+- Scheduled execution.
+- Failure alerting.
+- Operational metrics.
+- CI/CD automation.
 
-### Sprint 3
+## Analytical Plane Integration
 
-Reporting
-
-- report.json
-- summary.json
-- scorecard.json
-
----
-
-### Sprint 4
-
-Collector Integration
-
-- S3 Loader
-- Runtime Execution
-- Report Upload
-
----
-
-### Sprint 5
-
-Grafana
-
-- Dashboards
-- KPIs
-- Trend Reports
-
----
-
-## Version 1.1
-
-Enterprise Rules
-
-- Duplicate Detection
-- Reference Validation
-- Range Validation
-- Correlation Rules
-
----
-
-## Version 2.0
-
-Enterprise Platform
-
-- EO Catalog
-- REST APIs
-- Multi-source Validation
-- Historical Trending
-
-
-# Enterprise Observability Platform
-
-## Architecture
-
-                   Enterprise Observability Platform
-
-                     +---------------------------+
-                     |       EO Collector        |
-                     +---------------------------+
-                                |
-                                |
-                     +---------------------------+
-                     |      Kafka Collector      |
-                     +---------------------------+
-                                |
-                                |
-                     Normalized Telemetry Record
-                                |
-                                |
-                     +---------------------------+
-                     |      EO DQ Engine         |
-                     +---------------------------+
-                                |
-                                |
-                     +---------------------------+
-                     |     Result Exporter       |
-                     +---------------------------+
-                                |
-                                |
-                     report.json / summary.json
-
-## Components
-
-### EO Collector
-
-Responsible for collecting telemetry from supported sources.
-
-Current implementation:
-
-- Kafka
-
-Future collectors:
-
-- OTLP
-- CloudWatch
-- Splunk
-- Prometheus
-- File
-- REST API
-
----
-
-### EO DQ Engine
-
-Responsible for:
-
-- Runtime Rule Loading
-- Validator Resolution
-- Rule Execution
-- Result Generation
-
----
-
-### Result Exporter
-
-Responsible for:
-
-- report.json
-- summary.json
-
-Future:
-
-- S3
-- REST
-
-
+The DQ platform is intended to produce standardized, quality-scored telemetry metadata that can support downstream analytical and correlation use cases. Integration with the broader EO analytical-plane strategy should preserve source identity and cross-domain join keys.
